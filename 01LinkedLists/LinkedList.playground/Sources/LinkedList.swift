@@ -15,6 +15,7 @@ public struct LinkedList<Value> {
      push(_:) Adds a value to the front of the linked list
      */
     public mutating func push(_ value: Value) {
+        copyNodes()
         head = Node(value: value, next: head)
         if tail == nil {
             tail = head
@@ -25,7 +26,7 @@ public struct LinkedList<Value> {
      append(_:) Adds a value to the end of the linked list
      */
     public mutating func append(_ value: Value) {
-        
+        copyNodes()
         guard !isEmpty else {
             push(value)
             return
@@ -58,6 +59,7 @@ public struct LinkedList<Value> {
      */
     @discardableResult
     public mutating func insert(_ value: Value, after node: Node<Value>) -> Node<Value> {
+        copyNodes()
         guard tail !== node else {
             append(value)
             return tail!
@@ -73,6 +75,7 @@ public struct LinkedList<Value> {
      */
     @discardableResult
     public mutating func pop() -> Value? {
+        copyNodes()
         defer {
             head = head?.next
             if isEmpty {
@@ -87,6 +90,7 @@ public struct LinkedList<Value> {
      */
     @discardableResult
     public mutating func removeLast() -> Value? {
+        copyNodes()
         // if the head is nil, list is empty, return nil
         guard let head = head else {
             return nil
@@ -123,6 +127,7 @@ public struct LinkedList<Value> {
     
     @discardableResult
     public mutating func remove(after node: Node<Value>) -> Value? {
+        copyNodes()
         defer {
             // if the given node is the second last node, set it to the tail
             if node.next === tail {
@@ -134,6 +139,38 @@ public struct LinkedList<Value> {
         }
         // return the value of the node after the given node
         return node.next?.value
+    }
+    
+    /**
+     copyNodes() allows LinkedList to have value semantics
+     it is called at the beginning of any methods that mutate the data structure
+     
+     These include (6):
+     
+     push(_:)
+     append(_:)
+     pop()
+     insert(after:)
+     remove(after:)
+     removeLast()
+     
+     */
+    private mutating func copyNodes() {
+        guard var oldNode = head else {
+            return
+        }
+        
+        head = Node(value: oldNode.value)
+        var newNode = head
+        
+        while let nextOldNode = oldNode.next {
+            newNode!.next = Node(value: nextOldNode.value)
+            newNode = newNode!.next
+            
+            oldNode = nextOldNode
+        }
+        
+        tail = newNode
     }
 }
 
