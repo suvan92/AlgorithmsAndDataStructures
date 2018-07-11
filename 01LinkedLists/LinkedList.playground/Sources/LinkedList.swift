@@ -156,7 +156,8 @@ public struct LinkedList<Value> {
      
      */
     private mutating func copyNodes() {
-        guard var oldNode = head else {
+        guard !isKnownUniquelyReferenced(&head),
+            var oldNode = head else {
             return
         }
         
