@@ -1,8 +1,15 @@
 # AlgorithmsAndDataStructures
 
-This is a repositiory for familiarizing myself with various data structures, algorithms, and comsci related concepts
+This is a repositiory for familiarizing myself with various data structures, algorithms, and CS related concepts
 
-## Linked List
+### Contents
+
+1. [Linked Lists](#linked-lists)
+2. [Stacks](#stacks)
+3. [Queues](#queues)
+4. [Trees](#trees)
+
+## Linked Lists
 
 The linked list is a chain of nodes. A node has two responsibities
 1. Hold the value for that node
