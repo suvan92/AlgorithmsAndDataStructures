@@ -29,3 +29,9 @@ Let's look at the time complexity associated with each of these operations.
 | **pop** | remove at head | O(1)| The list has reference to the head so it simply must update the head to the previously second node, remove the old head, and return it's value |
 | **removeLast** | remove at tail | O(n)| The list has to update the tail so it needs reference to the second last node to update it's next reference to nil (making it the tail) so you must iterate |
 | **remove(after:)** | remove the immediate next node | O(1)| You already have reference to the node to be removed via the next property of the given node, all that's left is to update the next property of the given to node to point to the node after the node to be removed |
+
+## Stacks
+
+## Queues
+
+## Trees
