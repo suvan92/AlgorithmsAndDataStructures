@@ -10,6 +10,10 @@ public struct Stack<Element> {
     
     public init() {}
     
+    public init(_ elements: [Element]) {
+        storage = elements
+    }
+    
     /**
      push(_:) adds an element to the top of the stack
      */
@@ -33,6 +37,12 @@ public struct Stack<Element> {
         return storage.last
     }
     
+}
+
+extension Stack: ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Element...) {
+        storage = elements
+    }
 }
 
 extension Stack: CustomStringConvertible {
