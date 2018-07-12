@@ -27,13 +27,17 @@ public struct LinkedList<Value> {
      */
     public mutating func append(_ value: Value) {
         copyNodes()
+        // make sure list is not empty
         guard !isEmpty else {
+            // if it is, simply push the new value onto the list
+            // push takes care of assigning the head and tail
             push(value)
             return
         }
         
+        // if it is not empty assign the new node to the next node of the current tail
         tail!.next = Node(value: value)
-        
+        // update the tail
         tail = tail!.next
     }
     
@@ -60,11 +64,15 @@ public struct LinkedList<Value> {
     @discardableResult
     public mutating func insert(_ value: Value, after node: Node<Value>) -> Node<Value> {
         copyNodes()
+        // make sure the given node is not the tail node
         guard tail !== node else {
+            // if it is simply append the new value
+            // the append function takes care of updating the tail
             append(value)
             return tail!
         }
-        
+        // create a new node and assign it to the .next of the give node
+        // and move the previous next node to after the newly inserted node
         node.next = Node(value: value, next: node.next)
         return node.next!
     }
@@ -77,11 +85,14 @@ public struct LinkedList<Value> {
     public mutating func pop() -> Value? {
         copyNodes()
         defer {
+            // set the head node to the previously second node
             head = head?.next
+            // account for when there is only one item in the sequence
             if isEmpty {
                 tail = nil
             }
         }
+        // return the value of the first node
         return head?.value
     }
     
@@ -142,7 +153,7 @@ public struct LinkedList<Value> {
     }
     
     /**
-     copyNodes() allows LinkedList to have value semantics
+     copyNodes() allows LinkedList to exhibit value semantics
      it is called at the beginning of any methods that mutate the data structure
      
      These include (6):
@@ -153,6 +164,10 @@ public struct LinkedList<Value> {
      insert(after:)
      remove(after:)
      removeLast()
+     
+     the call to isKnownUniquelyReferenced(_:) is to prevent unnecessary copying
+     of all nodes whenever a mutating function is called
+     i.e. if there is only one reference to the list, it is not necessary to copy it
      
      */
     private mutating func copyNodes() {
