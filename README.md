@@ -39,6 +39,18 @@ Let's look at the time complexity associated with each of these operations.
 
 ## Stacks
 
+Stacks are a **LIFO** (last in first out) data structure. They are also a very simple data structure in that there are only two methods associated with them. They are:
+
+1. **push(_:)**: Adds an element to the top of the stack
+2. **pop()**: Removes the top element from the stack
+
+Stacks are used in iOS development to push and pop viewControllers into and out of view, for memory allocation, as well as search and conquer algorithms (to be discussed later).
+
+|Operation|Behaviour|Time Complexity|Explanation|
+|:-------:|:-------:|:-------------:|:----------|
+| **push** | Add element to top of stack | O(1) | The swift implementation of a stack uses an array. The swift array allows constant time insertions and deletions |
+| **pop** | Removes element from the top of the stack | O(1) | Again, the array underneath allows constant time insertions and deltions |
+
 ## Queues
 
 ## Trees
