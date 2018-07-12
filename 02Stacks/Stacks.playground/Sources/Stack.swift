@@ -4,6 +4,10 @@ public struct Stack<Element> {
     
     private var storage = [Element]()
     
+    public var isEmpty: Bool {
+        return peek() == nil
+    }
+    
     public init() {}
     
     /**
@@ -19,6 +23,14 @@ public struct Stack<Element> {
     @discardableResult
     public mutating func pop() -> Element? {
         return storage.popLast()
+    }
+    
+    /**
+     peek() returns the top element in the stack without removing it
+     */
+    @discardableResult
+    public func peek() -> Element? {
+        return storage.last
     }
     
 }
