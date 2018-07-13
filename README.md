@@ -105,3 +105,56 @@ The double stack based implementation is the most effecient of the implementatio
 ![Amortized push/enque operations](https://upload.wikimedia.org/wikipedia/commons/e/e5/AmortizedPush.png)
 
 ## Trees
+
+Trees are immensely important data strucutres. Some of the numerous use cases include:
+
+* Representing hierarchical relationships
+* managing sorted data
+* facilicating fast look up operations
+
+Like linked lists, trees also use nodes. Each node, except for the root node, has exactly one parent node. The nodes stemming from a particular node are called child nodes. The leaves are the end of the tree and have no child nodes.
+
+Iterations through linear collections such as arrays is relatively straightforward as there is a defined begninning and end. Interating through a tree however is less clear. There are two main strategies that you can employ: 1) Depth first and 2) Breadth first.
+
+### Depth first search
+
+The depth-first traversal goes as deep as possible into a tree before tracking back and exploring other children. The implmentation uses a recursive strategy as outlined below.
+
+```swift
+extension TreeNode {
+    public func forEachDepthFirst(visit: (TreeNode) -> Void) {
+        visit(self)
+        children.forEach {
+            $0.forEachDepthFirst(visit: visit)
+        }
+    }
+}
+```
+
+The result of the code above is illustrated below.
+
+![Depth-first traveral](https://upload.wikimedia.org/wikipedia/commons/1/1f/Depth-first-tree.svg)
+
+### Breadth first search
+
+The breadth-first or level-order traversal looks at each child of the 'root' before exploring the grandchilren nodes. The implementation uses are queue to keep track of the order in which to visit each node. When a node is reached, all of it's children are added to the queue before moving on to the next node on the same level.
+
+```swift
+extension TreeNode {
+    public func forEachLevelOrder(visit: (TreeNode) -> Void) {
+        visit(self)
+        var queue = Queue<TreeNode>()
+        children.forEach { queue.enqueue($0) }
+        while let node = queue.dequeue() {
+            visit(node)
+            node.children.forEach { queue.enqueue($0) }
+        }
+    }
+}
+```
+
+The result of the level-order traversal is illustrated below.
+
+![Level-order traveral](https://www.geeksforgeeks.org/wp-content/uploads/level_order_traversal.png)
+
+# Binary Trees
