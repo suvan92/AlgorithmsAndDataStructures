@@ -102,6 +102,6 @@ A ring buffer is essentially an array of fixed length with the addition of a rea
 
 The double stack based implementation is the most effecient of the implementations discussed so far. When an element is enqueued, it is appended to the right stack. When dequeue is called, if the left stack contains elements it simply pops the last element (O(1)). If the left stack is empty however, the right stack is reversed and assigned to the left stack, and then cleared. Reversing an array (stack) is an O(n) operation but because the underlying data structure is an array, memory is allocated in bulk and the O(n) operation only happens once all the memory block previously allocated is full. Essentially the O(n) operations are distributed over multiple enqueues so overall is is cheaper. The diagram below should provide some clarification.
 
-![Amortized push/enque operations](https://en.wikipedia.org/wiki/Amortized_analysis#/media/File:AmortizedPush.png)
+![Amortized push/enque operations](https://upload.wikimedia.org/wikipedia/commons/e/e5/AmortizedPush.png)
 
 ## Trees
