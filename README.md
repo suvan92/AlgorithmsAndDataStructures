@@ -48,8 +48,8 @@ Stacks are used in iOS development to push and pop viewControllers into and out 
 
 |Operation|Behaviour|Time Complexity|Explanation|
 |:-------:|:-------:|:-------------:|:----------|
-| **push** | Add element to top of stack | O(1) | The swift implementation of a stack uses an array. The swift array allows constant time insertions and deletions |
-| **pop** | Removes element from the top of the stack | O(1) | Again, the array underneath allows constant time insertions and deltions |
+| **push** | Add element to top of stack | O(1) | The swift implementation of a stack uses an array. The swift array allows constant time insertions and deletions of the last element |
+| **pop** | Removes element from the top of the stack | O(1) | Again, the array underneath allows constant time insertions and deletions of the last element |
 
 ## Queues
 
