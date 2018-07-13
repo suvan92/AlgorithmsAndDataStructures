@@ -63,15 +63,34 @@ Queues are a **FIFO** (first in first out) data structure. There are several pot
 |Operation|Best Case|Worst Case|
 |:-------:|:-------:|:--------:|
 | **enque(_:)** | O(1) | O(1) |
-| **dequeue*** | O(n) | O(n) |
+| **dequeue** | O(n) | O(n) |
 | Space Complexity | O(n) | O(n) |
 
 Enqueuing an element with an array based implementation is a O(1) operation which is ideal but dequeuing is an O(n) operation. Because elements of an array are held next to one another in blocks of memory, once the first element is dequeued, each subsequent element must be moved over one place. This is a large overhead for performing one of the key functions of this data structure.
 
 ### Doubly linked list based implementation
 
+|Operation|Best Case|Worst Case|
+|:-------:|:-------:|:--------:|
+| **enque(_:)** | O(1) | O(1) |
+| **dequeue** | O(1) | O(1) |
+| Space Complexity | O(n) | O(n) |
+
+
 ### Ring buffer based implementation
 
+|Operation|Best Case|Worst Case|
+|:-------:|:-------:|:--------:|
+| **enque(_:)** | O(1) | O(1) |
+| **dequeue** | O(1) | O(1) |
+| Space Complexity | O(n) | O(n) |
+
 ### Double stack based implementation
+
+|Operation|Best Case|Worst Case|
+|:-------:|:-------:|:--------:|
+| **enque(_:)** | O(1) | O(1) |
+| **dequeue** | O(1) | O(1) (Amortized) |
+| Space Complexity | O(n) | O(n) |
 
 ## Trees
