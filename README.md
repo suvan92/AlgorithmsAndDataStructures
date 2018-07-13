@@ -7,10 +7,10 @@ This is a repositiory for familiarizing myself with various data structures, alg
 1. [Linked Lists](#linked-lists)
 2. [Stacks](#stacks)
 3. [Queues](#queues)
-  a. [Array Based](#array-based-implementation)
-  b. [Doubly Linked List Based](#doubly-linked-list-based-implementation)
-  c. [Ring Buffer Based](#ring-buffer-based-implementation)
-  d. [Double Stack Based](#double-stack-based-implementation)
+⋅⋅*. [Array Based](#array-based-implementation)
+⋅⋅*. [Doubly Linked List Based](#doubly-linked-list-based-implementation)
+⋅⋅*. [Ring Buffer Based](#ring-buffer-based-implementation)
+⋅⋅*. [Double Stack Based](#double-stack-based-implementation)
 4. [Trees](#trees)
 
 ## Linked Lists
