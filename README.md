@@ -12,6 +12,7 @@ This is a repositiory for familiarizing myself with various data structures, alg
 &nbsp;&nbsp;&nbsp;iii. [Ring Buffer Based](#ring-buffer-based-implementation)<br>
 &nbsp;&nbsp;&nbsp;iv. [Double Stack Based](#double-stack-based-implementation)<br>
 4. [Trees](#trees)
+5. [Binary Trees](#binary-trees)
 
 ## Linked Lists
 
