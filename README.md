@@ -158,3 +158,41 @@ The result of the level-order traversal is illustrated below.
 ![Level-order traveral](https://www.geeksforgeeks.org/wp-content/uploads/level_order_traversal.png)
 
 # Binary Trees
+
+Binary trees are like trees discussed previously, except that each node has either 0, 1, or 2 children.
+
+Let's use this tree as an example:
+
+```
+ ┌──nil
+┌──9
+│ └──8
+7
+│ ┌──5
+└──1
+ └──0
+ ```
+
+#### In-order traversal
+
+An in-order traversal follows these 3 rules:
+
+1. If the current node has a left child, recursively visit this child first
+2. Then visit the node itself
+3. If current node has a right child, recurseively visit this child
+ 
+In the case of our example tree above, the order of traversal would be _0, 1, 5, 7, 8, 9_. You may have noticed that the nodes are visited in ascending order. If the tree is structured in a particular way this will always be the case (more on this in the next section).
+
+#### Pre-order traversal
+
+A pre-order traversal is similar to a in-order traversal except that the current node is visited before the left child.
+
+If we take example tree from above, the order of traversal would be _7, 1, 0, 5, 9, 8_.
+
+#### Post-order traversal
+
+A post-order traversal is similar to the two previous types of traversals except that the current node is visited only after the left and right child nodes, respectively.
+
+Using the sample from above the order of traversal would be _0, 5, 1, 8, 9, 7_.
+
+All of these traversal algorithms have a time and space complexity of _O(n)_.
