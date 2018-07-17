@@ -12,6 +12,8 @@ This is a repositiory for familiarizing myself with various data structures, alg
 &nbsp;&nbsp;&nbsp;iii. [Ring Buffer Based](#ring-buffer-based-implementation)<br>
 &nbsp;&nbsp;&nbsp;iv. [Double Stack Based](#double-stack-based-implementation)<br>
 4. [Trees](#trees)
+5. [Binary Trees](#binary-trees)
+6. [Binary Search Trees (BST)](#binary-search-trees-bst)
 
 ## Linked Lists
 
@@ -196,3 +198,10 @@ A post-order traversal is similar to the two previous types of traversals except
 Using the sample from above the order of traversal would be _0, 5, 1, 8, 9, 7_.
 
 All of these traversal algorithms have a time and space complexity of _O(n)_.
+
+# Binary Search Trees (BST)
+
+A binary search tree is a data structure that facilatates fast look up, addition, and removal operations. Each of these operations has an average time complexity of _O(log n)_, which is considerably faster than linear data structures such as arrays or linked lists as you can immediately ignore half the values once you make a decision at any given node. For this improve performance two rules must be followed:
+
+1. The value of the left child must be less than that of the parent
+2. The value of the right child must be more than that of the parent
