@@ -16,3 +16,25 @@ var tree: BinaryNode<Int> {
     
     return seven
 }
+
+example(of: "tree diagram") {
+    print(tree)
+}
+
+example(of: "in-order traversal") {
+    tree.traverseInOrder(visit: { (value) in
+        print(value)
+    })
+}
+
+example(of: "pre-order traversal") {
+    tree.traversePreOrder(visit: { (value) in
+        print(value)
+    })
+}
+
+example(of: "post-order traversal") {
+    tree.traversePostOrder(visit: { (value) in
+        print(value)
+    })
+}
