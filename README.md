@@ -311,3 +311,7 @@ _Good-enough balance_ is when all levels of the tree are filled except for the b
 #### Unbalanced
 
 If a binary tree does not fall into either of the previous categories it becomes an _unbalanced_ tree. Depending on the specific structure of the tree it can suffer various levels of performance loss.
+
+### Measuring Balance
+
+The AVL tree maintains balance using the _height_ of each node. A node's _height_ is the longest distance from it to a leaf node. The _relative heights_ of a node's children determine whether or not it is balanced. The difference in height of each of the children can differ at most by 1. This difference is also known as the __balance factor__.
