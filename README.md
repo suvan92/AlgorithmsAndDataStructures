@@ -35,13 +35,13 @@ Let's look at the time complexity associated with each of these operations.
 
 | Operation | Behaviour | Time Complexity | Explanation |
 |:---------:|:---------:|:---------------:|:------------|
-| **push** | insert at head | O(1)| The list has reference to the head so it simply updates the next references |
-| **append** | insert at tail | O(1)| The list has reference to the tail so it simply updates the next refrences |
-| **insert(after:)** | insert after a node | O(1)| The list has reference to the particular node so it simply updates the references like in **push** and **append** |
-| **node(at:)** | returns a node at a given index | O(i), where i is the given index| Because a linked list is not a random access collection (i.e. you cannot index into it like an array or map) you must iterate through the list till you find the node you're looking for |
-| **pop** | remove at head | O(1)| The list has reference to the head so it simply must update the head to the previously second node, remove the old head, and return it's value |
-| **removeLast** | remove at tail | O(n)| The list has to update the tail so it needs reference to the second last node to update it's next reference to nil (making it the tail) so you must iterate |
-| **remove(after:)** | remove the immediate next node | O(1)| You already have reference to the node to be removed via the next property of the given node, all that's left is to update the next property of the given to node to point to the node after the node to be removed |
+| **push** | insert at head | _O(1)_| The list has reference to the head so it simply updates the next references |
+| **append** | insert at tail |  _O(1)_| The list has reference to the tail so it simply updates the next refrences |
+| **insert(after:)** | insert after a node |  _O(1)_| The list has reference to the particular node so it simply updates the references like in **push** and **append** |
+| **node(at:)** | returns a node at a given index | _O(i)_, where i is the given index| Because a linked list is not a random access collection (i.e. you cannot index into it like an array or map) you must iterate through the list till you find the node you're looking for |
+| **pop** | remove at head |  _O(1)_| The list has reference to the head so it simply must update the head to the previously second node, remove the old head, and return it's value |
+| **removeLast** | remove at tail | _O(n_)| The list has to update the tail so it needs reference to the second last node to update it's next reference to nil (making it the tail) so you must iterate |
+| **remove(after:)** | remove the immediate next node | _O(1)_| You already have reference to the node to be removed via the next property of the given node, all that's left is to update the next property of the given to node to point to the node after the node to be removed |
 
 ## Stacks
 
@@ -54,8 +54,8 @@ Stacks are used in iOS development to push and pop viewControllers into and out 
 
 |Operation|Behaviour|Time Complexity|Explanation|
 |:-------:|:-------:|:-------------:|:----------|
-| **push** | Add element to top of stack | O(1) | The swift implementation of a stack uses an array. The swift array allows constant time insertions and deletions of the last element |
-| **pop** | Removes element from the top of the stack | O(1) | Again, the array underneath allows constant time insertions and deletions of the last element |
+| **push** | Add element to top of stack |  _O(1)_ | The swift implementation of a stack uses an array. The swift array allows constant time insertions and deletions of the last element |
+| **pop** | Removes element from the top of the stack |  _O(1)_ | Again, the array underneath allows constant time insertions and deletions of the last element |
 
 ## Queues
 
@@ -68,19 +68,19 @@ Queues are a **FIFO** (first in first out) data structure. There are several pot
 
 |Operation|Best Case|Worst Case|
 |:-------:|:-------:|:--------:|
-| **enque(_:)** | O(1) | O(1) |
-| **dequeue** | O(n) | O(n) |
-| Space Complexity | O(n) | O(n) |
+| **enque(_:)** |  _O(1)_ |  _O(1)_ |
+| **dequeue** |  _O(n)_ | _O(n)_ |
+| Space Complexity | _O(n)_ | _O(n)_ |
 
-Enqueuing an element with an array based implementation is a O(1) operation which is ideal but dequeuing is an O(n) operation. Because elements of an array are held next to one another in blocks of memory, once the first element is dequeued, each subsequent element must be moved over one place. This is a large overhead for performing one of the key functions of this data structure.
+Enqueuing an element with an array based implementation is a  _O(1)_ operation which is ideal but dequeuing is an _O(n)_ operation. Because elements of an array are held next to one another in blocks of memory, once the first element is dequeued, each subsequent element must be moved over one place. This is a large overhead for performing one of the key functions of this data structure.
 
 ### Doubly linked list based implementation
 
 |Operation|Best Case|Worst Case|
 |:-------:|:-------:|:--------:|
-| **enque(_:)** | O(1) | O(1) |
-| **dequeue** | O(1) | O(1) |
-| Space Complexity | O(n) | O(n) |
+| **enque(_:)** |  _O(1)_ |  _O(1)_ |
+| **dequeue** |  _O(1)_ |  _O(1)_ |
+| Space Complexity | _O(n)_ | _O(n)_ |
 
 On the surface the doubly linked list based implementation seems to solve the main problem with the [array based implementation](#array-based-implementation) because all that is necessary to enqueue and dequeue is to update the references on the tail and head, respectively. However, each element has extra overhead in the form of the node object and references to the previous and next node. Additionally, everytime a new element is added memory must be allocated dynamically. In this respect the array based implementation is preferable as arrays employ bulk allocation.
 
@@ -88,9 +88,9 @@ On the surface the doubly linked list based implementation seems to solve the ma
 
 |Operation|Best Case|Worst Case|
 |:-------:|:-------:|:--------:|
-| **enque(_:)** | O(1) | O(1) |
-| **dequeue** | O(1) | O(1) |
-| Space Complexity | O(n) | O(n) |
+| **enque(_:)** |  _O(1)_ |  _O(1)_ |
+| **dequeue** |  _O(1)_ |  _O(1)_ |
+| Space Complexity | _O(n)_ | _O(n)_ |
 
 A ring buffer is essentially an array of fixed length with the addition of a read and write pointer. This means that once the array is full the first element will be overwritten by the next incoming element. The ring buffer has similar performance to the [doubly linked list based implementation](#doubly-linked-list-based-implementation). The main issue is that enque can fail if the maximum capacity has been reached.
 
@@ -98,11 +98,11 @@ A ring buffer is essentially an array of fixed length with the addition of a rea
 
 |Operation|Best Case|Worst Case|
 |:-------:|:-------:|:--------:|
-| **enque(_:)** | O(1) | O(1) |
-| **dequeue** | O(1) | O(1) (Amortized) |
-| Space Complexity | O(n) | O(n) |
+| **enque(_:)** |  _O(1)_ |  _O(1)_ |
+| **dequeue** |  _O(1)_ |  _O(1)_ (Amortized) |
+| Space Complexity | _O(n)_ | _O(n)_ |
 
-The double stack based implementation is the most effecient of the implementations discussed so far. When an element is enqueued, it is appended to the right stack. When dequeue is called, if the left stack contains elements it simply pops the last element (O(1)). If the left stack is empty however, the right stack is reversed and assigned to the left stack, and then cleared. Reversing an array (stack) is an O(n) operation but because the underlying data structure is an array, memory is allocated in bulk and the O(n) operation only happens once all the memory block previously allocated is full. Essentially the O(n) operations are distributed over multiple enqueues so overall is is cheaper. The diagram below should provide some clarification.
+The double stack based implementation is the most effecient of the implementations discussed so far. When an element is enqueued, it is appended to the right stack. When dequeue is called, if the left stack contains elements it simply pops the last element ( _O(1)_). If the left stack is empty however, the right stack is reversed and assigned to the left stack, and then cleared. Reversing an array (stack) is an _O(n)_ operation but because the underlying data structure is an array, memory is allocated in bulk and the _O(n)_ operation only happens once all the memory block previously allocated is full. Essentially the _O(n)_ operations are distributed over multiple enqueues so overall is is cheaper. The diagram below should provide some clarification.
 
 ![Amortized push/enque operations](https://upload.wikimedia.org/wikipedia/commons/e/e5/AmortizedPush.png)
 
