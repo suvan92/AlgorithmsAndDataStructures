@@ -295,3 +295,19 @@ As you can see, __25__ was replaced by __27__ (the smallest value in __25__'s ri
 ## AVL Trees
 
 In the previous section we discussed the potential _O(log n)_ performance of binary search trees. However, this is only the case when the tree is _balanced_. In the worst case of an _unbalanced_ tree, the performance can deteriorate to _O(n)_. It would be convenient to implement a tree that automatically balances itself whenever a new value is inserted. This is where a <b>A</b>delson-<b>V</b>elsky and <b>L</b>andis Tree (A.K.A. __AVL Tree__) comes in.
+
+### Balance
+
+There are three states of balance:
+
+#### Perfect balance
+
+A perfectly balanced tree is the ideal form of a binary search tree. This means that every level of the tree is filled with nodes. Additionally, the tree is perfectly symmetrical, and the nodes on the bottom level are completely filled. This implies that a tree can only be balanced with a particular number of elements (_e.g. 1, 3, 7, 15, etc._). These numbers follow the sequence _2^n - 1_ where _n≥0_.
+
+#### "Good-enough" balance
+
+_Good-enough balance_ is when all levels of the tree are filled except for the bottom level. This is probably the most common form of the binary tree.
+
+#### Unbalanced
+
+If a binary tree does not fall into either of the previous categories it becomes an _unbalanced_ tree. Depending on the specific structure of the tree it can suffer various levels of performance loss.
