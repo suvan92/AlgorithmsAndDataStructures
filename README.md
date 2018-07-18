@@ -271,7 +271,7 @@ Nodes with two children are slightly more complicated. Consider the following tr
   └──10
 ```
 
-Say we want to remove the value __25__. Simply removing __25__ and attaching it's child nodes to the root __50__ means that the right side of the tree (the side with __75__) will also be removed. In order to get around this we will implement a workaround by performing a swap. More specifically, the node being removed (__25__) will be replaced by the smallest node in the the _right_ subtree stemming from __25__ (__27__). This will produce a valid binary search tree because the incoming node is from the _right_ subtree of __25__ is greater than all nodes in the _left_ subtree stemming from __25__ while still being smaller than all the the values in it's previous subtree. After performing this work around, the new tree should look like this:
+Say we want to remove the value __25__. Simply removing __25__ and attaching it's child nodes to the root __50__ means that the right side of the tree (the side with __75__) will also be removed. In order to get around this we will implement a workaround by performing a swap. More specifically, the node being removed (__25__) will be replaced by the smallest node in the the _right_ subtree stemming from __25__ (__27__). This will produce a valid binary search tree because the incoming node is from the _right_ subtree of __25__ and therefore is greater than all nodes in the _left_ subtree stemming from __25__ while still being smaller than all the the values in it's (__27__'s) previous subtree. After performing this work around, the new tree should look like this:
 
 ```
  ┌──87
