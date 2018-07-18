@@ -205,3 +205,88 @@ A binary search tree is a data structure that facilatates fast look up, addition
 
 1. The value of the left child must be less than that of the parent
 2. The value of the right child must be more than that of the parent
+
+### Inserting elements
+
+If we were to construct a binary tree by iterating through an ordered array we may get something that looks like this:
+
+```
+   ┌──4
+  ┌──3
+  │ └──nil
+ ┌──2
+ │ └──nil
+┌──1
+│ └──nil
+0
+└──nil
+```
+
+While this follows the two rules outlined above this is an undersirable configuration because you are not able to eliminate half the possibilites when evaluating a node. As a result traversal through an unbalanced tree would be _O(n)_ as opposed to _O(log n)_. A balanced tree like the one below is much more desirable.
+
+```
+ ┌──5
+┌──4
+│ └──nil
+3
+│ ┌──2
+└──1
+ └──0
+```
+Constructing a self balancing tree will be discussed in the next section.
+
+### Removing elements
+
+There are three cases one must consider when removing elements from a binary tree.
+
+1. Leaf node
+2. Nodes with one child
+3. Nodes with two children
+
+#### Leaf node
+
+Removing a leaf node is straightforward. Simply detatching the leaf nodes is sufficient.
+
+#### Nodes with one child
+
+When removing a node with one child, you need to reconnect that one child to the rest of the tree.
+
+#### Nodes with two children
+
+Nodes with two children are slightly more complicated. Consider the following tree:
+
+```
+ ┌──87
+┌──75
+│ └──63
+50
+│  ┌──45
+│ ┌──37
+│ │ │ ┌──33
+│ │ └──32
+│ │  └──27
+└──25
+ │ ┌──17
+ └──12
+  └──10
+```
+
+Say we want to remove the value __25___. Simply removing __25__ and attaching it's child nodes to the root __50__ means that the right side of the tree (the side with __75__) will also be removed. In order to get around this we will implement a workaround by performing a swap. More specifically, the node being removed (__25__) will be replaced by the smallest node in the the _right_ subtree stemming from __25__ (__27__). This will produce a valid binary search tree because the incoming node is from the _right_ subtree of __25__ is greater than all nodes in the _left_ subtree stemming from __25__ while still being smaller than all the the values in it's previous subtree. After performing this work around, the new tree should look like this:
+
+```
+ ┌──87
+┌──75
+│ └──63
+50
+│  ┌──45
+│ ┌──37
+│ │ │ ┌──33
+│ │ └──32
+│ │  └──nil
+└──27
+ │ ┌──17
+ └──12
+  └──10
+```
+
+As you can see, __25__ was replaced by __27__ (the smallest value in __25__'s right subtree) and the two rules of the binary tree are maintained.
