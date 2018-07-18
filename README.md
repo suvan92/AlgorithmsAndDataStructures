@@ -14,6 +14,7 @@ This is a repositiory for familiarizing myself with various data structures, alg
 4. [Trees](#trees)
 5. [Binary Trees](#binary-trees)
 6. [Binary Search Trees (BST)](#binary-search-trees-bst)
+7. [AVL Trees](#avl-trees)
 
 ## Linked Lists
 
@@ -199,7 +200,7 @@ Using the sample from above the order of traversal would be _0, 5, 1, 8, 9, 7_.
 
 All of these traversal algorithms have a time and space complexity of _O(n)_.
 
-# Binary Search Trees (BST)
+## Binary Search Trees (BST)
 
 A binary search tree is a data structure that facilatates fast look up, addition, and removal operations. Each of these operations has an average time complexity of _O(log n)_, which is considerably faster than linear data structures such as arrays or linked lists as you can immediately ignore half the values once you make a decision at any given node. For this improve performance two rules must be followed:
 
@@ -290,3 +291,7 @@ Say we want to remove the value __25__. Simply removing __25__ and attaching it'
 ```
 
 As you can see, __25__ was replaced by __27__ (the smallest value in __25__'s right subtree) and the two rules of the binary tree are maintained.
+
+## AVL Trees
+
+In the previous section we discussed the potential _O(log n)_ performance of binary search trees. However, this is only the case when the tree is _balanced_. In the worst case of an _unbalanced_ tree, the performance can deteriorate to _O(n)_. It would be convenient to implement a tree that automatically balances itself whenever a new value is inserted. This is where a <b>A</b>delson-<b>V</b>elsky and <b>L</b>andis Tree (A.K.A. __AVL Tree__) comes in.
